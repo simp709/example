@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: example
+  labels:
+    app: example
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: example
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/simp709/example.git
+    targetRevision: main
+    path: ./k8s/example/dev
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
