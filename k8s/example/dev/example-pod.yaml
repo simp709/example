@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: web-nickname
-    image: simpatifredy/nickname:latest
+    image: simpatifredy/nickname:vidio
     ports:
     - containerPort: 80
